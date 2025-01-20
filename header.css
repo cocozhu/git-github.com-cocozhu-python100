@@ -1,0 +1,114 @@
+<style>
+       
+        /* 修改浮动按钮相关样式 */
+        .float-button {
+            position: fixed;
+            bottom: 20px;
+            top: auto;
+            transform: none;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #1bb67f;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            z-index: 9998;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            -webkit-perspective: 1000;
+            perspective: 1000;
+        }
+
+        /* 修改悬停提示样式 */
+        .float-button::before {
+            content: "微信客服";
+            position: absolute;
+            right: 60px;
+            background-color: #1bb67f;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 14px;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        /* 只在鼠标悬停时显示提示文字 */
+        .float-button:hover::before {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* 当二维码隐藏时才显示悬停提示 */
+        /* .qrcode-container:not(.show) ~ .float-button:hover::before {
+            opacity: 1;
+            visibility: visible;
+        } */
+		
+		        /* 在移动设备上隐藏提示文字 */
+        @media (max-width: 768px) {
+            .float-button::before {
+                display: none;
+            }
+        }
+
+
+        .float-button:hover {
+            transform: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        /* 修改图片样式，添加白色滤镜 */
+        .float-button img {
+            width: 30px;
+            height: 30px;
+            filter: brightness(0) invert(1);
+        }
+
+        footer {
+            margin-top: 500px;
+            padding: 20px;
+            background-color: #f2f2f2;
+            text-align: center;
+        }
+
+        /* 修改二维码容器样式 */
+        .qrcode-container {
+            position: fixed;
+            bottom: 20px;
+            top: auto;
+            transform: none;
+            right: 80px;
+            background-color: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 9999;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+        }
+
+        .qrcode-container.show {
+            display: block;
+            opacity: 1;
+        }
+
+        .qrcode-container img {
+            width: 150px;
+            height: 150px;
+            display: block;
+        }
+    </style>
