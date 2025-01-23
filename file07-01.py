@@ -22,3 +22,18 @@ print(list1) # [400, 5, 7, 100, 200, 1000]
 # 清空列表元素
 list1.clear()
 print(list1) # []
+
+# 元组
+t = (1,2,3,4)
+print('t=',t)
+print(t[2])
+y = list(t)
+print(y)
+y[2] = 99
+print(y,y[2])
+
+# 将列表转换成元组
+fruits_list = ['apple', 'banana', 'orange']
+fruits_tuple = tuple(fruits_list)
+print(fruits_tuple)
+print(type(fruits_tuple))
