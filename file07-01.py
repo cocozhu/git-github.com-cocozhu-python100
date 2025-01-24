@@ -37,3 +37,27 @@ fruits_list = ['apple', 'banana', 'orange']
 fruits_tuple = tuple(fruits_list)
 print(fruits_tuple)
 print(type(fruits_tuple))
+
+import os
+import time
+
+def main():
+    content = input("请输入滚动文字内容：")
+    try:
+        while True:
+            # 清理屏幕上的输出
+            if os.name == 'nt':
+                os.system('cls')  # Windows
+            else:
+                os.system('clear')  # macOS/Linux
+
+            print(content)
+            # 休眠200毫秒
+            time.sleep(0.2)
+            # 滚动文字
+            content = content[1:] + content[0]  # content[1:]提取从第二个字符到最后一个字符的子串。content[0] 提取第一个字符。
+    except KeyboardInterrupt:
+        print("\n程序已退出")
+
+if __name__ == '__main__':
+    main()

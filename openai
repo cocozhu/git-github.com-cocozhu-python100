@@ -1,0 +1,30 @@
+
+
+
+#sk-f4de13b75da1408baa471e394dd5b0df
+
+from openai import OpenAI
+
+# 1. 设置 API 密钥
+#openai.api_key = "sk"  # 替换为你的 API 密钥
+
+
+client = OpenAI(api_key="sk-f4de", base_url="https://api.deepseek.com")
+
+
+# 2. 定义请求参数
+response = client.chat.completions.create(
+    model="deepseek-chat",  # 或 "gpt-4"
+    messages=[
+        {"role": "system", "content": "You are a helpful assistant."},  # 系统消息
+        {"role": "user", "content": "请解释一下 Python 的闭包是什么？"}  # 用户输入
+    ],
+    stream=False
+    #max_tokens=200,  # 控制生成文本的最大长度
+    #temperature=0.7,  # 创造性控制，0.7 表示平衡创造性和一致性
+)
+
+# 3. 处理和打印结果
+#print(response['choices'][0]['message']['content'])
+print(response.choices[0].message.content)
+
